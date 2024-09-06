@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() {
+
+  String arg = const String.fromEnvironment('simple'); // arg = "example"
+
   runApp(IDSafeApp());
 }
 
