@@ -1,12 +1,18 @@
-# myapp
+# IDSafe
 
-A new Flutter project.
+A new solutions that enable users to interact with everyone onchain effortlessly (“interoperability”) while ensuring their safety (“security”). 
+
+Use cross-chain tools from partners to help users navigate between subnet, the Avalanche mainnet, and other EVM chains.
+
+![alt text](image.png)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a the codebase for IDSafe.
 
-A few resources to get you started if this is your first Flutter project:
+You will also find the SDK for utilizing this project at the repo https://github.com/Hackathonzx/IDSafe-sdk
+
+A few resources to get you started if this is your first IDSafe integration:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
