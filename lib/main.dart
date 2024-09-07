@@ -13,7 +13,7 @@ class IDSafeApp extends StatelessWidget {
     return MaterialApp(
       title: 'IDSafe',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
         brightness: Brightness.dark,
       ),
       home: HomePage(),
