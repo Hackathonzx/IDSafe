@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage>
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.account_circle),
-                  label: 'Account',
+                  label: 'Wallet',
                 ),
               ],
             )
