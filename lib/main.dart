@@ -73,14 +73,14 @@ class _HomePageState extends State<HomePage>
                     child: Text(' Menu'),
                   ),
                   ListTile(
-                    title: const Text('Home'),
+                    title: const Text('Connect'),
                     onTap: () {
                       // Handle navigation to home
                       Navigator.pop(context);
                     },
                   ),
                   ListTile(
-                    title: const Text('Token'),
+                    title: const Text('Info'),
                     onTap: () {
                       // Handle navigation to token
 
@@ -88,14 +88,14 @@ class _HomePageState extends State<HomePage>
                     },
                   ),
                   ListTile(
-                    title: const Text('Info'),
+                    title: const Text('Wallet'),
                     onTap: () {
                       // Handle navigation to info
                       Navigator.pop(context);
                     },
                   ),
                   ListTile(
-                    title: const Text('Account'),
+                    title: const Text('Settings'),
                     onTap: () {
                       // Handle navigation to account
                       Navigator.pop(context);
@@ -162,20 +162,20 @@ class _HomePageState extends State<HomePage>
           ? NavigationBar(
               destinations: [
                 NavigationDestination(
-                  icon: Icon(Icons.home),
-                  label: 'Home',
+                  icon: Icon(Icons.link),
+                  label: 'Connect',
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.token),
-                  label: 'Token',
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.info),
+                  icon: Icon(Icons.info_sharp),
                   label: 'Info',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.account_circle),
                   label: 'Wallet',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.account_circle),
+                  label: 'Settings',
                 ),
               ],
             )
