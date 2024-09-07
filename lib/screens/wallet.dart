@@ -69,28 +69,28 @@ class AccountPage extends StatelessWidget {
                     // Handle send
                   },
                   child: Text('Send'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle add crypto
                   },
                   child: Text('Add Crypto'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle exchange
                   },
                   child: Text('Exchange'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle P2P market
                   },
                   child: Text('P2P Market'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 ),
               ],
             ),
