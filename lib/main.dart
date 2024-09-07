@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage>
                     decoration: BoxDecoration(
                       color: Colors.green,
                     ),
-                    child: Text('IDSafe Menu'),
+                    child: Text(' Menu'),
                   ),
                   ListTile(
                     title: const Text('Home'),
