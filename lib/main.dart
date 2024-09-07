@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Scaffold(
       appBar: AppBar(
         title: Text('IDSafe'),
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -65,8 +66,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 opacity: _animation,
                 child: Image.asset(
                   'assets/logo.png',
-                  width: 360,
-                  height: 80,
+                  width: 720,
+                  height: 160,
                 ),
               ),
               SizedBox(height: 20),
@@ -148,7 +149,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               SizedBox(height: 5),
               Text(
                 description,
-                style: TextStyle(fontSize: 16, color: Colors.grey[400]),
+                style: TextStyle(fontSize: 16, color: Colors.green[400]),
               ),
             ],
           ),
