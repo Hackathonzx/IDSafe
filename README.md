@@ -4,7 +4,17 @@ A new solutions that enable users to interact with everyone onchain effortlessly
 
 Use cross-chain tools from partners to help users navigate between subnet, the Avalanche mainnet, and other EVM chains.
 
+IDSafe is designed to run on all devices and platforms, ensuring ubiquitous integration, accessibility, and security.
+
+```IDSafe mobile```
+
 ![alt text](image.png)
+
+```IDSafe web```
+
+![alt text](image-1.png)
+
+```IDSafe desktop```
 
 ## Getting Started
 
