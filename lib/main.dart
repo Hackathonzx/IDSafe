@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/connect/connect.dart';
+import 'package:myapp/mint/mint.dart';
+import 'package:myapp/screens/fourth.dart';
+import 'package:myapp/screens/second.dart';
+import 'package:myapp/screens/third.dart';
 
 void main() {
   String arg = const String.fromEnvironment('simple'); // arg = "example"
@@ -12,8 +17,7 @@ class IDSafeApp extends StatelessWidget {
     return MaterialApp(
       title: 'IDSafe',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple
-,
+        primarySwatch: Colors.deepPurple,
         brightness: Brightness.dark,
       ),
       home: HomePage(),
@@ -36,8 +40,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
-      vsync:
- this,
+      vsync: this,
     )..repeat(reverse: true);
     _animation = CurvedAnimation(
       parent: _controller,
@@ -58,7 +61,7 @@ class _HomePageState extends State<HomePage>
         title: Text('IDSafe'),
         backgroundColor: Colors.green,
       ),
-      drawer: MediaQuery.of(context).size.width < 600
+      drawer: MediaQuery.of(context).size.width >= 600
           ? Drawer(
               child: ListView(
                 padding: EdgeInsets.zero,
@@ -118,7 +121,7 @@ class _HomePageState extends State<HomePage>
               ),
               SizedBox(height: 20),
               Text(
-                ' Mint NFT',
+                ' Connect Wallet',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
@@ -151,7 +154,7 @@ class _HomePageState extends State<HomePage>
                 'Instantly deploy your Application with IDSafe SDK.',
                 'https://vercel.com/new',
               ),
-              if (MediaQuery.of(context).size.width >= 600)
+              if (MediaQuery.of(context).size.width < 600)
                 NavigationBar(
                   destinations: [
                     NavigationDestination(
@@ -159,13 +162,9 @@ class _HomePageState extends State<HomePage>
                       label: 'Home',
                     ),
 
-
-
 // Cut out continuation.
 
-
-
-NavigationDestination(
+                    NavigationDestination(
                       icon: Icon(Icons.token),
                       label: 'Token',
                     ),
@@ -183,7 +182,6 @@ NavigationDestination(
           ),
         ),
       ),
-
     );
   }
 
@@ -204,8 +202,7 @@ NavigationDestination(
 
   Widget _buildLinkCard(String title, String description, String url) {
     return Card(
-      margin
-: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         onTap: () {
           // Handle link tap
