@@ -119,6 +119,6 @@ void main() {
       primarySwatch: Colors.deepPurple,
       brightness: Brightness.dark,
     ),
-    home: InfoPage(),
+    home: const InfoPage(),
   ));
 }

@@ -34,10 +34,10 @@ class IDSafeApp extends StatelessWidget {
       home: const HomePage(),
 
        routes: {
-        '/connect': (context) => HomePage(),
-        '/info': (context) => InfoPage(),
-        '/wallet': (context) => AccountPage(),
-        '/settings': (context) => SettingsPage(),
+        '/connect': (context) => const HomePage(),
+        '/info': (context) => const InfoPage(),
+        '/wallet': (context) => const AccountPage(),
+        '/settings': (context) => const SettingsPage(),
       },
 
 
@@ -244,7 +244,7 @@ class _HomePageState extends State<HomePage>
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => InfoPage()),
+                        MaterialPageRoute(builder: (context) => const InfoPage()),
                       );
 
 
