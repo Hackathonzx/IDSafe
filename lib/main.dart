@@ -94,16 +94,18 @@ void _onDestinationSelected(int index) {
 
     switch (index) {
       case 0:
-        Navigator.pushReplacementNamed(context, '/connect');
+        // Navigator.pushReplacementNamed(context, '/connect');
+        Navigator.pushNamed(context, '/connect');
+
         break;
       case 1:
-        Navigator.pushReplacementNamed(context, '/info');
+        Navigator.pushNamed(context, '/info');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/wallet');
+        Navigator.pushNamed(context, '/wallet');
         break;
       case 3:
-        Navigator.pushReplacementNamed(context, '/settings');
+        Navigator.pushNamed(context, '/settings');
         break;
     }
   }
