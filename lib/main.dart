@@ -113,7 +113,37 @@ class _HomePageState extends State<HomePage>
 
 
 
-void _onDestinationSelected(int index) {
+// void _onDestinationSelected(int index) {
+//     if (_selectedIndex == index) {
+//       // If the selected index is the same as the current index, do nothing
+//       return;
+//     }
+
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     switch (index) {
+//       case 0:
+//         // Do nothing if already on the home page
+//         break;
+//       case 1:
+//         Navigator.pushNamed(context, '/info');
+//         break;
+//       case 2:
+//         Navigator.pushNamed(context, '/wallet');
+//         break;
+//       case 3:
+//         Navigator.pushNamed(context, '/settings');
+//         break;
+//     }
+//   }
+
+
+
+
+
+  void _onDestinationSelected(int index) {
     if (_selectedIndex == index) {
       // If the selected index is the same as the current index, do nothing
       return;
@@ -128,16 +158,30 @@ void _onDestinationSelected(int index) {
         // Do nothing if already on the home page
         break;
       case 1:
-        Navigator.pushNamed(context, '/info');
+        Navigator.pushNamed(context, '/info').then((_) {
+          setState(() {
+            _selectedIndex = 0; // Reset to home page index
+          });
+        });
         break;
       case 2:
-        Navigator.pushNamed(context, '/wallet');
+        Navigator.pushNamed(context, '/wallet').then((_) {
+          setState(() {
+            _selectedIndex = 0; // Reset to home page index
+          });
+        });
         break;
       case 3:
-        Navigator.pushNamed(context, '/settings');
+        Navigator.pushNamed(context, '/settings').then((_) {
+          setState(() {
+            _selectedIndex = 0; // Reset to home page index
+          });
+        });
         break;
     }
   }
+
+
 
 
 
