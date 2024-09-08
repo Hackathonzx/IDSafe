@@ -1,5 +1,5 @@
 name: idsafeweb
-description: A new jaspr project.
+description: IDSafe web.
 version: 0.0.1
 
 environment:
@@ -21,10 +21,11 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 dependency_overrides:
-  meta: 1.12.0
-  
+  meta: ^1.15.0
+  analyzer: ^6.5.0
+
 jaspr:
-  mode: server
+  mode: client
 
 flutter:
   uses-material-design: true
