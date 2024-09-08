@@ -6,6 +6,9 @@ Use cross-chain tools from partners to help users navigate between subnet, the A
 
 IDSafe is designed to run on all devices and platforms, ensuring ubiquitous integration, accessibility, and security.
 
+```IDSafe extension```
+![alt text](image-2.png)
+
 ```IDSafe mobile```
 
 ![alt text](image.png)
