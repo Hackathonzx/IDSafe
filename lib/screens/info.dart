@@ -4,10 +4,26 @@ class InfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
+
       appBar: AppBar(
         title: const Text('Info'),
         backgroundColor: Colors.green,
+
+         leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+
+        
       ),
+
+
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
