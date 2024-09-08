@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myapp/main.dart';
 
 void main() {
   runApp(ProviderScope(child: IDSafeApp()));
@@ -19,28 +20,28 @@ class IDSafeApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('IDSafe'),
-        backgroundColor: Colors.green,
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()),
-            );
-          },
-          child: Text('Go to Settings'),
-        ),
-      ),
-    );
-  }
-}
+// class HomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('IDSafe'),
+//         backgroundColor: Colors.green,
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed: () {
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => SettingsPage()),
+//             );
+//           },
+//           child: Text('Go to Settings'),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class SettingsPage extends ConsumerStatefulWidget {
   final String? walletString;
@@ -51,7 +52,8 @@ class SettingsPage extends ConsumerStatefulWidget {
   _SettingsPageState createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends ConsumerState<SettingsPage> with SingleTickerProviderStateMixin {
+class _SettingsPageState extends ConsumerState<SettingsPage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   String selectedWallet = 'default';
 
