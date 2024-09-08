@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/connect/connect.dart';
 import 'package:myapp/mint/mint.dart';
 import 'package:myapp/screens/fourth.dart';
+import 'package:myapp/screens/info.dart';
 import 'package:myapp/screens/second.dart';
 import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
@@ -96,6 +97,17 @@ class _HomePageState extends State<HomePage>
                       // Handle navigation to token
 
                       Navigator.pop(context);
+
+
+
+                        Navigator.pop(context);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => InfoPage()),
+                      );
+
+
                     },
                   ),
                   ListTile(
