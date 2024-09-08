@@ -1,9 +1,15 @@
 {
-    "name": "myapp",
-    "short_name": "myapp",
+    "name": "IDSafe",
+    "short_name": "IDSafe",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",
+
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' ; object-src 'self'"
+    },
+
+
     "theme_color": "#hexcode",
     "description": "A new Flutter project.",
     "orientation": "portrait-primary",
