@@ -5,7 +5,7 @@ import 'package:myapp/screens/fourth.dart';
 import 'package:myapp/screens/second.dart';
 import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
-import 'package:myapp/screens/settings.dart';
+import 'package:myapp/screens/settings.dart' as Settings;
 
 void main() {
   String arg = const String.fromEnvironment('simple'); // arg = "example"
@@ -105,11 +105,11 @@ class _HomePageState extends State<HomePage>
                     title: const Text('Settings'),
                     onTap: () {
                       // Handle navigation to account
-                      // Navigator.pop(context);
+                      Navigator.pop(context);
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                        MaterialPageRoute(builder: (context) => Settings.HomePage()),
                       );
 
 
