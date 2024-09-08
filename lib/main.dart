@@ -7,10 +7,34 @@ import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
 import 'package:myapp/screens/settings.dart' as Settings;
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:myapp/main.dart';
+
+// void main() {
+//   runApp(ProviderScope(child: IDSafeApp()));
+// }
+
+// class IDSafeApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'IDSafe',
+//       theme: ThemeData(
+//         primarySwatch: Colors.deepPurple,
+//         brightness: Brightness.dark,
+//       ),
+//       home: HomePage(),
+//     );
+//   }
+// }
+
+
 void main() {
   String arg = const String.fromEnvironment('simple'); // arg = "example"
 
-  runApp(IDSafeApp());
+  // runApp(IDSafeApp());
+  runApp(ProviderScope(child: IDSafeApp()));
+
 }
 
 class IDSafeApp extends StatelessWidget {
