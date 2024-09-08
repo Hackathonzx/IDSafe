@@ -15,7 +15,7 @@ IDSafe is designed to run on all devices and platforms, ensuring ubiquitous inte
 
 ```IDSafe web```
 
-![alt text](image-1.png)
+![alt text](image-3.png)
 
 ```IDSafe desktop```
 
