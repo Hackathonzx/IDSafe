@@ -2,46 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/main.dart';
 
-void main() {
-  runApp(ProviderScope(child: IDSafeApp()));
-}
-
-class IDSafeApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'IDSafe',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        brightness: Brightness.dark,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('IDSafe'),
-//         backgroundColor: Colors.green,
-//       ),
-//       body: Center(
-//         child: ElevatedButton(
-//           onPressed: () {
-//             Navigator.push(
-//               context,
-//               MaterialPageRoute(builder: (context) => SettingsPage()),
-//             );
-//           },
-//           child: Text('Go to Settings'),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class SettingsPage extends ConsumerStatefulWidget {
   final String? walletString;
@@ -1362,3 +1322,49 @@ final backupProvider = StateProvider<bool>((ref) => false);
 // final nftScanningProvider = StateProvider<bool>((ref) => false);
 // final nfcProvider = StateProvider<bool>((ref) => false);
 // final backupProvider = StateProvider<bool>((ref) => false);
+
+
+
+
+
+
+// void main() {
+//   runApp(ProviderScope(child: IDSafeApp()));
+// }
+
+// class IDSafeApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'IDSafe',
+//       theme: ThemeData(
+//         primarySwatch: Colors.deepPurple,
+//         brightness: Brightness.dark,
+//       ),
+//       home: HomePage(),
+//     );
+//   }
+// }
+
+// class HomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('IDSafe'),
+//         backgroundColor: Colors.green,
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed: () {
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => SettingsPage()),
+//             );
+//           },
+//           child: Text('Go to Settings'),
+//         ),
+//       ),
+//     );
+//   }
+// }
