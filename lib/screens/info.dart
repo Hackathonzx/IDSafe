@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatelessWidget {
+  const InfoPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +14,7 @@ class InfoPage extends StatelessWidget {
         backgroundColor: Colors.green,
 
          leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },

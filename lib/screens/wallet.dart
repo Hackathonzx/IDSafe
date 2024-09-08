@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(IDSafeApp());
+  runApp(const IDSafeApp());
 }
 
 class IDSafeApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class IDSafeApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         brightness: Brightness.dark,
       ),
-      home: AccountPage(),
+      home: const AccountPage(),
     );
   }
 }
@@ -73,28 +73,28 @@ class AccountPage extends StatelessWidget {
                     // Handle send
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('Send'),
+                  child: const Text('Send'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle add crypto
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('Add Crypto'),
+                  child: const Text('Add Crypto'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle exchange
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('Exchange'),
+                  child: const Text('Exchange'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle P2P market
                   },
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('P2P Market'),
+                  child: const Text('P2P Market'),
                 ),
               ],
             ),

@@ -4,6 +4,7 @@ import 'package:myapp/mint/mint.dart';
 import 'package:myapp/screens/fourth.dart';
 import 'package:myapp/screens/info.dart';
 import 'package:myapp/screens/second.dart';
+import 'package:myapp/screens/settings.dart';
 import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
 import 'package:myapp/screens/settings.dart' as Settings;
@@ -15,7 +16,7 @@ void main() {
   String arg = const String.fromEnvironment('simple'); // arg = "example"
 
   // runApp(IDSafeApp());
-  runApp(ProviderScope(child: IDSafeApp()));
+  runApp(const ProviderScope(child: IDSafeApp()));
 
 }
 
@@ -30,7 +31,16 @@ class IDSafeApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         brightness: Brightness.dark,
       ),
-      home: HomePage(),
+      home: const HomePage(),
+
+       routes: {
+        '/connect': (context) => HomePage(),
+        '/info': (context) => InfoPage(),
+        '/wallet': (context) => AccountPage(),
+        '/settings': (context) => SettingsPage(),
+      },
+
+
     );
   }
 }
@@ -46,6 +56,29 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+
+  int _selectedIndex = 0;
+
+void _onDestinationSelected(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/connect');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/info');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/wallet');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/settings');
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -118,7 +151,7 @@ class _HomePageState extends State<HomePage>
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AccountPage()),
+                        MaterialPageRoute(builder: (context) => const AccountPage()),
                       );
                     },
                   ),
@@ -130,7 +163,7 @@ class _HomePageState extends State<HomePage>
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Settings.SettingsPage()),
+                        MaterialPageRoute(builder: (context) => const Settings.SettingsPage()),
                       );
 
 
@@ -195,26 +228,56 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       bottomNavigationBar: MediaQuery.of(context).size.width < 600
-          ? NavigationBar(
-              destinations: const [
-                NavigationDestination(
-                  icon: Icon(Icons.link),
-                  label: 'Connect',
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.info_sharp),
-                  label: 'Info',
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.account_circle),
-                  label: 'Wallet',
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.account_circle),
-                  label: 'Settings',
-                ),
-              ],
-            )
+          ? 
+          
+          // NavigationBar(
+          //     destinations: const [
+          //       NavigationDestination(
+          //         icon: Icon(Icons.link),
+          //         label: 'Connect',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.info_sharp),
+          //         label: 'Info',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.account_circle),
+          //         label: 'Wallet',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.account_circle),
+          //         label: 'Settings',
+          //       ),
+          //     ],
+          //   )
+
+
+        NavigationBar(
+                      selectedIndex: _selectedIndex,
+                      onDestinationSelected: _onDestinationSelected,
+                      destinations: const [
+                        NavigationDestination(
+                          icon: Icon(Icons.link),
+                          label: 'Connect',
+                        ),
+                        NavigationDestination(
+                          icon: Icon(Icons.info_sharp),
+                          label: 'Info',
+                        ),
+                        NavigationDestination(
+                          icon: Icon(Icons.account_circle),
+                          label: 'Wallet',
+                        ),
+                        NavigationDestination(
+                          icon: Icon(Icons.settings),
+                          label: 'Settings',
+                        ),
+                      ],
+                    )
+
+
+
+
           : null,
     );
   }

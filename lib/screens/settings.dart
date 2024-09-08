@@ -65,7 +65,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
+        children: const [
           WalletSettings(),
           NFTSettings(),
           BackupSettings(),
@@ -96,7 +96,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
                   Navigator.pop(context);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
               ),
