@@ -5,6 +5,7 @@ import 'package:myapp/screens/fourth.dart';
 import 'package:myapp/screens/second.dart';
 import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
+import 'package:myapp/screens/settings.dart';
 
 void main() {
   String arg = const String.fromEnvironment('simple'); // arg = "example"
@@ -92,23 +93,27 @@ class _HomePageState extends State<HomePage>
                     title: const Text('Wallet'),
                     onTap: () {
                       // Handle navigation to info
-                      // Navigator.pop(context);
+                      Navigator.pop(context);
 
-
-
-               Navigator.push(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => AccountPage()),
                       );
-
-
                     },
                   ),
                   ListTile(
                     title: const Text('Settings'),
                     onTap: () {
                       // Handle navigation to account
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                      );
+
+
+
                     },
                   ),
                 ],
