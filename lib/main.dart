@@ -19,6 +19,8 @@ void main() {
 }
 
 class IDSafeApp extends StatelessWidget {
+  const IDSafeApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,6 +35,8 @@ class IDSafeApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -65,7 +69,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('IDSafe'),
+        title: const Text('IDSafe'),
         backgroundColor: Colors.green,
       ),
       drawer: MediaQuery.of(context).size.width >= 600
@@ -139,21 +143,21 @@ class _HomePageState extends State<HomePage>
                   height: 160,
                 ),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 ' Connect Wallet',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildInputField('Address', Icons.email),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Handle form submission
                 },
-                child: Text('Connect'),
+                child: const Text('Connect'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildLinkCard(
                 'Docs',
                 'Find in-depth information about IDSafe features and API.',
@@ -180,7 +184,7 @@ class _HomePageState extends State<HomePage>
       ),
       bottomNavigationBar: MediaQuery.of(context).size.width < 600
           ? NavigationBar(
-              destinations: [
+              destinations: const [
                 NavigationDestination(
                   icon: Icon(Icons.link),
                   label: 'Connect',
@@ -220,7 +224,7 @@ class _HomePageState extends State<HomePage>
 
   Widget _buildLinkCard(String title, String description, String url) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         onTap: () {
           // Handle link tap
@@ -232,9 +236,9 @@ class _HomePageState extends State<HomePage>
             children: [
               Text(
                 title,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 description,
                 style: TextStyle(fontSize: 16, color: Colors.green[400]),

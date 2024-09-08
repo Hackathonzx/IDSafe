@@ -5,6 +5,8 @@ void main() {
 }
 
 class IDSafeApp extends StatelessWidget {
+  const IDSafeApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,14 +21,16 @@ class IDSafeApp extends StatelessWidget {
 }
 
 class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Account'),
+        title: const Text('Account'),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
               // Handle more options
             },
@@ -40,26 +44,26 @@ class AccountPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Total Balance
-            Text(
+            const Text(
               'Total Balance',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
-                Text(
+                const Text(
                   '\$12,345.67',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
-                  icon: Icon(Icons.refresh),
+                  icon: const Icon(Icons.refresh),
                   onPressed: () {
                     // Handle refresh balance
                   },
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Action Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,38 +72,38 @@ class AccountPage extends StatelessWidget {
                   onPressed: () {
                     // Handle send
                   },
-                  child: Text('Send'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('Send'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle add crypto
                   },
-                  child: Text('Add Crypto'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('Add Crypto'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle exchange
                   },
-                  child: Text('Exchange'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('Exchange'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Handle P2P market
                   },
-                  child: Text('P2P Market'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('P2P Market'),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Notifications Panel
             Card(
               color: Colors.green[100],
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -113,7 +117,7 @@ class AccountPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // List of Tokens
             Expanded(
               child: ListView.builder(
@@ -121,9 +125,9 @@ class AccountPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
-                      leading: Icon(Icons.monetization_on),
+                      leading: const Icon(Icons.monetization_on),
                       title: Text('Token ${index + 1}'),
-                      subtitle: Text('Balance: 123.45'),
+                      subtitle: const Text('Balance: 123.45'),
                     ),
                   );
                 },

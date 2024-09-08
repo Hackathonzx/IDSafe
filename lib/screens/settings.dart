@@ -6,7 +6,7 @@ import 'package:myapp/main.dart';
 class SettingsPage extends ConsumerStatefulWidget {
   final String? walletString;
 
-  SettingsPage({this.walletString});
+  const SettingsPage({super.key, this.walletString});
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -30,7 +30,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         backgroundColor: Colors.green,
         actions: [
           DropdownButton<String>(
@@ -56,7 +56,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
         ],
         bottom: TabBar(
           controller: _tabController,
-          tabs: [
+          tabs: const [
             Tab(text: 'Wallet'),
             Tab(text: 'NFT'),
             Tab(text: 'Backup'),
@@ -79,19 +79,19 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('New Wallet'),
+          title: const Text('New Wallet'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text('Create Wallet'),
+                title: const Text('Create Wallet'),
                 onTap: () {
                   Navigator.pop(context);
                   // Navigate to create wallet page
                 },
               ),
               ListTile(
-                title: Text('Connect Wallet'),
+                title: const Text('Connect Wallet'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(
@@ -109,20 +109,22 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
 }
 
 class WalletSettings extends ConsumerWidget {
+  const WalletSettings({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       children: [
         ListTile(
-          title: Text('Choose Chains/Network'),
-          subtitle: Text('Default: Arbitrium'),
+          title: const Text('Choose Chains/Network'),
+          subtitle: const Text('Default: Arbitrium'),
           onTap: () {
             // Navigate to chains/network page
           },
         ),
         SwitchListTile(
-          title: Text('Allow Testnets'),
+          title: const Text('Allow Testnets'),
           // value: ref.watch(testnetsProvider).state,
           value: ref.watch(testnetsProvider),
           onChanged: (bool value) {
@@ -130,7 +132,7 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         SwitchListTile(
-          title: Text('Allow External Connections'),
+          title: const Text('Allow External Connections'),
           // value: ref.watch(externalConnectionsProvider).state,
           value: ref.watch(externalConnectionsProvider),
           onChanged: (bool value) {
@@ -138,7 +140,7 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         SwitchListTile(
-          title: Text('Listen for Connection Requests'),
+          title: const Text('Listen for Connection Requests'),
           // value: ref.watch(connectionRequestsProvider).state,
           value: ref.watch(connectionRequestsProvider),
           onChanged: (bool value) {
@@ -146,7 +148,7 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         SwitchListTile(
-          title: Text('Notifications'),
+          title: const Text('Notifications'),
           // value: ref.watch(notificationsProvider).state,
           value: ref.watch(notificationsProvider),
           onChanged: (bool value) {
@@ -154,13 +156,13 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         ListTile(
-          title: Text('Wallet Language'),
+          title: const Text('Wallet Language'),
           onTap: () {
             // Navigate to language settings page
           },
         ),
         SwitchListTile(
-          title: Text('Biometric Unlock'),
+          title: const Text('Biometric Unlock'),
           // value: ref.watch(biometricUnlockProvider).state,
           value: ref.watch(biometricUnlockProvider),
           onChanged: (bool value) {
@@ -168,19 +170,19 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         ListTile(
-          title: Text('Add Device Passkey'),
+          title: const Text('Add Device Passkey'),
           onTap: () {
             // Navigate to add device passkey page
           },
         ),
         ListTile(
-          title: Text('Default Currency'),
+          title: const Text('Default Currency'),
           onTap: () {
             // Navigate to default currency page
           },
         ),
         SwitchListTile(
-          title: Text('Expand Assets'),
+          title: const Text('Expand Assets'),
           // value: ref.watch(expandAssetsProvider).state,
           value: ref.watch(expandAssetsProvider),
           onChanged: (bool value) {
@@ -188,7 +190,7 @@ class WalletSettings extends ConsumerWidget {
           },
         ),
         ListTile(
-          title: Text('IDSafe FAQ'),
+          title: const Text('IDSafe FAQ'),
           onTap: () {
             // Navigate to FAQ page
           },
@@ -199,13 +201,15 @@ class WalletSettings extends ConsumerWidget {
 }
 
 class NFTSettings extends ConsumerWidget {
+  const NFTSettings({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       children: [
         SwitchListTile(
-          title: Text('Allow Minting NFTs'),
+          title: const Text('Allow Minting NFTs'),
           // value: ref.watch(mintingNFTsProvider).state,
           value: ref.watch(mintingNFTsProvider),
           onChanged: (bool value) {
@@ -213,7 +217,7 @@ class NFTSettings extends ConsumerWidget {
           },
         ),
         SwitchListTile(
-          title: Text('Enable NFT Scanning'),
+          title: const Text('Enable NFT Scanning'),
           // value: ref.watch(nftScanningProvider).state,
           value: ref.watch(nftScanningProvider),
 
@@ -222,7 +226,7 @@ class NFTSettings extends ConsumerWidget {
           },
         ),
         SwitchListTile(
-          title: Text('Enable NFC'),
+          title: const Text('Enable NFC'),
           // value: ref.watch(nfcProvider).state,
           value: ref.watch(nfcProvider),
           onChanged: (bool value) {
@@ -235,13 +239,15 @@ class NFTSettings extends ConsumerWidget {
 }
 
 class BackupSettings extends ConsumerWidget {
+  const BackupSettings({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       children: [
         SwitchListTile(
-          title: Text('Turn on Backup'),
+          title: const Text('Turn on Backup'),
           // value: ref.watch(backupProvider).state,
           value: ref.watch(backupProvider),
           onChanged: (bool value) {
@@ -251,13 +257,13 @@ class BackupSettings extends ConsumerWidget {
         // if (ref.watch(backupProvider).state) ...[
         if (ref.watch(backupProvider)) ...[
           ListTile(
-            title: Text('Local Backup'),
+            title: const Text('Local Backup'),
             onTap: () {
               // Navigate to local backup settings page
             },
           ),
           ListTile(
-            title: Text('Backup to Google Drive'),
+            title: const Text('Backup to Google Drive'),
             onTap: () {
               // Navigate to Google Drive backup settings page
             },
