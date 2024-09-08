@@ -59,26 +59,57 @@ class _HomePageState extends State<HomePage>
 
   int _selectedIndex = 0;
 
+// void _onDestinationSelected(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     switch (index) {
+//       case 0:
+//         Navigator.pushNamed(context, '/connect');
+//         break;
+//       case 1:
+//         Navigator.pushNamed(context, '/info');
+//         break;
+//       case 2:
+//         Navigator.pushNamed(context, '/wallet');
+//         break;
+//       case 3:
+//         Navigator.pushNamed(context, '/settings');
+//         break;
+//     }
+//   }
+
+
+
 void _onDestinationSelected(int index) {
+    if (_selectedIndex == index) {
+      // If the selected index is the same as the current index, do nothing
+      return;
+    }
+
     setState(() {
       _selectedIndex = index;
     });
 
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, '/connect');
+        Navigator.pushReplacementNamed(context, '/connect');
         break;
       case 1:
-        Navigator.pushNamed(context, '/info');
+        Navigator.pushReplacementNamed(context, '/info');
         break;
       case 2:
-        Navigator.pushNamed(context, '/wallet');
+        Navigator.pushReplacementNamed(context, '/wallet');
         break;
       case 3:
-        Navigator.pushNamed(context, '/settings');
+        Navigator.pushReplacementNamed(context, '/settings');
         break;
     }
   }
+
+
+
 
   @override
   void initState() {
