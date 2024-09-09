@@ -1,28 +1,33 @@
+const { ethers } = require("hardhat");
+require('dotenv').config();
+
 async function main() {
-  const [deployer] = await ethers.getSigners();
+    const [deployer] = await ethers.getSigners();
+    
+    console.log("Deploying contracts with the account:", deployer.address);
 
-  console.log("Deploying contracts with the account:", deployer.address);
-  console.log("Account balance:", (await deployer.getBalance()).toString());
+    // Deploy DIDRegistry contract
+    const DIDRegistry = await ethers.getContractFactory("DIDRegistry");
+    const didRegistry = await DIDRegistry.deploy();
+    await didRegistry.deployed();
+    console.log("DIDRegistry deployed to:", didRegistry.address);
 
-  // Example NGO addresses (testnet addresses)
-  const ngoAddresses = [
-    "0x1234567890abcdef1234567890abcdef12345678",
-    "0xabcdef1234567890abcdef1234567890abcdef12",
-    "0x7890abcdef1234567890abcdef1234567890abcd"
-  ];
+    // Deploy CredentialNFT contract
+    const CredentialNFT = await ethers.getContractFactory("CredentialNFT");
+    const credentialNFT = await CredentialNFT.deploy();
+    await credentialNFT.deployed();
+    console.log("CredentialNFT deployed to:", credentialNFT.address);
 
-  // Example approval threshold
-  const approvalThreshold = 2;  // Must be <= number of NGO addresses
-
-  const Contract = await ethers.getContractFactory("IDSafe");
-  const contract = await Contract.deploy(ngoAddresses, approvalThreshold);
-
-  console.log("Contract deployed to:", contract.address);
+    // Deploy VerificationOracle contract
+    const VerificationOracle = await ethers.getContractFactory("VerificationOracle");
+    const ccipRouter = process.env.CCIP_ROUTER_ADDRESS; // Set this in your .env file
+    const linkToken = process.env.LINK_TOKEN_ADDRESS; // Set this in your .env file
+    const verificationOracle = await VerificationOracle.deploy(ccipRouter, linkToken);
+    await verificationOracle.deployed();
+    console.log("VerificationOracle deployed to:", verificationOracle.address);
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch(error => {
+main().catch((error) => {
     console.error(error);
-    process.exit(1);
-  });
+    process.exitCode = 1;
+});

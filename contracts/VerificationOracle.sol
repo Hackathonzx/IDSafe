@@ -7,65 +7,57 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract VerificationOracle is ChainlinkClient, Ownable {
     using Chainlink for Chainlink.Request;
 
-    // Chainlink Oracle configuration
-    address private oracle;  // Chainlink Oracle address
-    bytes32 private jobId;   // Job ID to specify the task
-    uint256 private fee;     // Chainlink fee (LINK)
+    address private ccipRouter;  // Chainlink CCIP Router address
+    bytes32 private jobId;        // Job ID for Chainlink CCIP task
+    uint256 private fee;          // Chainlink fee (in LINK)
 
     // Response data
     uint256 public response;
 
     // Events
     event RequestFulfilled(bytes32 indexed requestId, uint256 indexed data);
+    event CrossChainVerificationRequest(uint256 tokenId, address requester, string destinationChain);
 
-    constructor() {
-        // Initialize with Chainlink token address on the testnet
-        _setChainlinkToken(0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846);  // LINK token address (Testnet)
-        setOracleAddress(0xd0EbC86a4f67654B654Feb0e615d7f5C139a6406);  // Oracle address
-        setJobId("8ced832954544a3c98543c94a51d6a8d");   // Job ID for Chainlink
-        setFeeInHundredthsOfLink(0);  // Setting fee to 0 LINK
+    constructor(address _ccipRouter, address _linkToken) {
+        _setChainlinkToken(_linkToken);  // Set Chainlink LINK token address
+        ccipRouter = _ccipRouter;      // Set CCIP Router address
+        jobId = "8ced832954544a3c98543c94a51d6a8d";            // Set your Chainlink job ID
+        fee = 0;                          // Set Chainlink fee for testing
     }
 
-    // Request cross-chain data related to user identity verification
-    function requestIdentityVerificationData(string memory did) public {
+    // Request cross-chain identity verification using the CCIP Router
+    function requestCrossChainIdentityVerification(uint256 tokenId, string memory did, string memory destinationChain) public {
         Chainlink.Request memory req = _buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        
-        // Construct URL for the mock API
-        string memory url = string(abi.encodePacked("https://api.mockaroo.com/api/1395ac80?count=50&key=ec41c190"));
 
-        // Add URL and parameters to the request
-        req._add("get", url);
-        req._add("path", string(abi.encodePacked("issuer,", did, ",verified")));  // Adjust path based on actual API response
+        req._add("did", did);  // Decentralized Identifier (DID)
+        req._add("destinationChain", destinationChain);  // Destination blockchain
 
-        // Send request to Chainlink oracle
-        _sendChainlinkRequestTo(oracle, req, fee);
+        _sendChainlinkRequestTo(ccipRouter, req, fee);  // Send request via Chainlink Router (Transporter)
+        emit CrossChainVerificationRequest(tokenId, msg.sender, destinationChain);
     }
 
-    // Function to fulfill the request from Chainlink oracle
+    // Fulfill cross-chain data from CCIP
     function fulfill(bytes32 _requestId, uint256 _identityData) public recordChainlinkFulfillment(_requestId) {
-        response = _identityData;  // Process the cross-chain identity verification data
-        emit RequestFulfilled(_requestId, _identityData);  // Emit event with received data
+        response = _identityData;
+        emit RequestFulfilled(_requestId, _identityData);
     }
 
-    // Setters for updating contract parameters (can be restricted with onlyOwner in the future)
-
-    // Update oracle address
-    function setOracleAddress(address _oracleAddress) public onlyOwner {
-        oracle = _oracleAddress;
-        _setChainlinkOracle(_oracleAddress);
+    // Setter for dynamically updating the CCIP Router address
+    function setCcipRouter(address _ccipRouter) public onlyOwner {
+        ccipRouter = _ccipRouter;
     }
 
-    // Update job ID for Chainlink request
-    function setJobId(string memory _jobId) public onlyOwner {
-        jobId = bytes32(bytes(_jobId));
+    // Setter for updating the Chainlink job ID
+    function setJobId(bytes32 _jobId) public onlyOwner {
+        jobId = _jobId;
     }
 
-    // Set Chainlink request fee in LINK
-    function setFeeInHundredthsOfLink(uint256 _feeInHundredthsOfLink) public onlyOwner {
-        fee = (_feeInHundredthsOfLink * 10 ** 18) / 100;  // Fee calculated in Juels
+    // Setter for updating the Chainlink fee
+    function setFee(uint256 _fee) public onlyOwner {
+        fee = _fee;
     }
 
-    // Withdraw LINK tokens from the contract (for the contract owner)
+    // Withdraw LINK tokens
     function withdrawLink() public onlyOwner {
         LinkTokenInterface link = LinkTokenInterface(_chainlinkTokenAddress());
         require(link.transfer(msg.sender, link.balanceOf(address(this))), "Unable to transfer");
