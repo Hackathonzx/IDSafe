@@ -8,6 +8,11 @@ IDSafe is a blockchain-based identity verification system designed for refugees.
 - Credential Issuance and Verification: Refugees receive verifiable credentials as NFTs or tokens, which can be used to prove their identity.
 - Event Emission: The system emits events for credential issuance and cross-chain verification, ensuring transparency and traceability.
 
+# How Chainlink is Used in the Project:
+In this project, Chainlink's Cross-Chain Interoperability Protocol (CCIP) is used to enable cross-chain identity verification. Specifically, Chainlink CCIP ensures that identity verification can occur across different blockchains, making the credential verification system interoperable. This is done by:
+- Emitting a cross-chain verification event that signals the credential needs to be verified on a specific chain (e.g., Avalanche).
+- Utilizing Chainlink's oracles to send verification requests and process responses between multiple blockchains securely.
+
 # Architecture
 # Smart Contracts:
 - DIDRegistry.sol: Manages the registration and retrieval of DIDs.
@@ -22,19 +27,32 @@ Network: IntersectTestnet, Intersect network on Avalanche.
 - CredentialNFT: [0x1d8c981FD95060A45b3Cea346DbF7b5b48f5CD36]
 
 # Setup and Installation
-# Clone the Repository:  git clone https://github.com/yourusername/idsafe.git
+Clone the Repository:  git clone https://github.com/yourusername/idsafe.git
+cd <project-repo-directory>
 
-# Install Dependencies:
-cd idsafe
-npm install
+# Dependencies and Installation
+# Dependencies:
+Solidity Version: ^0.8.0
+OpenZeppelin Contracts:
+@openzeppelin/contracts/token/ERC721/ERC721.sol
+@openzeppelin/contracts/access/Ownable.sol
+@openzeppelin/contracts/utils/Counters.sol
+Hardhat: For local development and testing
+npm install --save-dev hardhat
+Chai: Assertion library for testing
+npm install chai
+Ethers.js: For interacting with Ethereum
+npm install ethers
+Chainlink:
+npm install @chainlink/contracts: For utilizing Chainlink CCIP for cross-chain interoperability.
+Chainlink CCIP (Cross-Chain Interoperability Protocol) for cross-chain data transmission.
+npm install @chainlink/ccip
 
-# Run Tests:
-npx hardhat test
-
-# Deploy Contracts:
-Edit deploy.js with your network settings.
-Run deployment script:
-npx hardhat run scripts/deploy.js --network [network-name]
+# Installation:
+- Install the dependencies: npm install
+- Compile the smart contracts: npx hardhat compile
+- Run tests: npx hardhat test
+- Deploy the contract: npx hardhat run scripts/deploy.js --network <network-name>
 
 # Usage
 - Issuing Credentials:
@@ -64,14 +82,14 @@ git commit -m "Add feature"
 git push origin feature/your-feature
 
 # License
-[Specify License]
+[MIT License]
 
-Acknowledgments
-[List any libraries, tools, or people that contributed to the project.]
-
-
-
-jobId = "8ced832954544a3c98543c94a51d6a8d";
+# Acknowledgments
+futhmah456@gmail.com
+nathfavour02@gmail.com
 
 
-link to the verified contract on the Arbitrum explorer: https://sepolia.arbiscan.io/address/0x2fad953e1f524e6590edf50bda6fcb391dd4fd96
+
+
+
+
