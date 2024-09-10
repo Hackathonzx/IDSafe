@@ -1,34 +1,74 @@
-# Sample Hardhat Project
+# Project Name: IDSafe
+# Overview
+IDSafe is a blockchain-based identity verification system designed for refugees. It uses decentralized identifiers (DIDs) and Chainlink's Cross-Chain Interoperability Protocol (CCIP) to manage identity verification across different blockchains. The system ensures that refugees can access essential services like healthcare, education, and financial assistance through verified digital credentials.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+# Features
+- Decentralized Identity Management: Each refugee is assigned a unique Decentralized Identifier (DID) to manage their identity securely.
+- Cross-Chain Interoperability: Integration with Chainlink CCIP allows for seamless identity verification across multiple blockchain networks.
+- Credential Issuance and Verification: Refugees receive verifiable credentials as NFTs or tokens, which can be used to prove their identity.
+- Event Emission: The system emits events for credential issuance and cross-chain verification, ensuring transparency and traceability.
 
-Try running some of the following tasks:
+# Architecture
+# Smart Contracts:
+- DIDRegistry.sol: Manages the registration and retrieval of DIDs.
+- VerificationOracle.sol: Handles cross-chain verification requests using Chainlink CCIP.
+- CredentialNFT.sol: Issues and manages credentials as ERC721 NFTs.
 
-```shell
-npx hardhat help
+# Deployment
+Network: IntersectTestnet, Intersect network on Avalanche.
+# Contract Addresses:
+- DIDRegistry: [0x41CD3d7753eeAD4c2d384a6C0074eA4c27dE36F1]
+- VerificationOracle: [0xf1979Ac32D086D1f3f3773fe0828d37729ed545f]
+- CredentialNFT: [0x1d8c981FD95060A45b3Cea346DbF7b5b48f5CD36]
+
+# Setup and Installation
+# Clone the Repository:  git clone https://github.com/yourusername/idsafe.git
+
+# Install Dependencies:
+cd idsafe
+npm install
+
+# Run Tests:
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
-contracts files created:
-DIDRegistry.sol: This contract will handle the creation and management of Decentralized Identifiers (DIDs) for refugees.
 
-CredentialNFT.sol: This contract will handle the issuance of credentials as NFTs, verified and credentialed by UNHCR.
+# Deploy Contracts:
+Edit deploy.js with your network settings.
+Run deployment script:
+npx hardhat run scripts/deploy.js --network [network-name]
 
-### VerificationOracle.sol: 
-Utilizes Chainlink's CCIP Router to handle cross-chain communication for identity verification. It allows you to request verification data from different chains and process the responses. This is key for interoperability and ensures that the verification process works across different blockchain networks.
+# Usage
+- Issuing Credentials:
+Call issueCredentialWithMetadata(to: address, metadata: string) on the CredentialNFT contract.
 
-### DIDRegistry.sol: 
-Handles the registration and management of Decentralized Identifiers (DIDs), which is crucial for linking identities in a decentralized system.
+- Verifying Credentials:
+Use getCredentialMetadata(tokenId: uint256) to retrieve metadata.
 
-### CredentialNFT.sol: 
-Manages ERC721 NFTs representing credentials, which can be issued, queried, and burned. This supports the identity verification process by providing a way to issue and manage credentials on-chain.
+- Cross-Chain Verification:
+Call emitCrossChainVerificationEvent(tokenId: uint256, chain: string) to emit verification events.
 
-integrating Chainlink CCIP
-This contract is responsible for handling requests and responses, which makes it a suitable candidate for incorporating cross-chain functionalities.
-smart contract to handle cross-chain requests and responses using CCIP
- purpose of this contract is to request identity verification across multiple blockchains, rather than requesting data from an external API.
+# Testing
+- Test Framework: Hardhat
+- Tests: [Test files]
+- test/CredentialNFT.test.js: Tests for the CredentialNFT contract.
+- test/DIDRegistry.test.js: Tests for the DIDRegistry contract.
+- test/VerificationOracle.test.js: Tests for the VerificationOracle contract.
+
+# Contributing
+- Fork the Repository:
+- Create a New Branch:
+git checkout -b feature/your-feature
+- Make Changes and Commit:
+git add .
+git commit -m "Add feature"
+- Push Changes:
+git push origin feature/your-feature
+
+# License
+[Specify License]
+
+Acknowledgments
+[List any libraries, tools, or people that contributed to the project.]
+
 
 
 jobId = "8ced832954544a3c98543c94a51d6a8d";
