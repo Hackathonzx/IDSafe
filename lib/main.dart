@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/connect/connect.dart';
-import 'package:myapp/mint/mint.dart';
-import 'package:myapp/screens/fourth.dart';
 import 'package:myapp/screens/info.dart';
-import 'package:myapp/screens/second.dart';
 import 'package:myapp/screens/settings.dart';
-import 'package:myapp/screens/third.dart';
 import 'package:myapp/screens/wallet.dart';
 import 'package:myapp/screens/settings.dart' as Settings;
 
@@ -58,89 +53,6 @@ class _HomePageState extends State<HomePage>
   late Animation<double> _animation;
 
   int _selectedIndex = 0;
-
-// void _onDestinationSelected(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-
-//     switch (index) {
-//       case 0:
-//         Navigator.pushNamed(context, '/connect');
-//         break;
-//       case 1:
-//         Navigator.pushNamed(context, '/info');
-//         break;
-//       case 2:
-//         Navigator.pushNamed(context, '/wallet');
-//         break;
-//       case 3:
-//         Navigator.pushNamed(context, '/settings');
-//         break;
-//     }
-//   }
-
-
-
-// void _onDestinationSelected(int index) {
-//     if (_selectedIndex == index) {
-//       // If the selected index is the same as the current index, do nothing
-//       return;
-//     }
-
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-
-//     switch (index) {
-//       case 0:
-//         // Navigator.pushReplacementNamed(context, '/connect');
-//         Navigator.pushNamed(context, '/connect');
-
-//         break;
-//       case 1:
-//         Navigator.pushNamed(context, '/info');
-//         break;
-//       case 2:
-//         Navigator.pushNamed(context, '/wallet');
-//         break;
-//       case 3:
-//         Navigator.pushNamed(context, '/settings');
-//         break;
-//     }
-//   }
-
-
-
-
-// void _onDestinationSelected(int index) {
-//     if (_selectedIndex == index) {
-//       // If the selected index is the same as the current index, do nothing
-//       return;
-//     }
-
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-
-//     switch (index) {
-//       case 0:
-//         // Do nothing if already on the home page
-//         break;
-//       case 1:
-//         Navigator.pushNamed(context, '/info');
-//         break;
-//       case 2:
-//         Navigator.pushNamed(context, '/wallet');
-//         break;
-//       case 3:
-//         Navigator.pushNamed(context, '/settings');
-//         break;
-//     }
-//   }
-
-
-
 
 
   void _onDestinationSelected(int index) {
@@ -336,27 +248,7 @@ class _HomePageState extends State<HomePage>
       ),
       bottomNavigationBar: MediaQuery.of(context).size.width < 600
           ? 
-          
-          // NavigationBar(
-          //     destinations: const [
-          //       NavigationDestination(
-          //         icon: Icon(Icons.link),
-          //         label: 'Connect',
-          //       ),
-          //       NavigationDestination(
-          //         icon: Icon(Icons.info_sharp),
-          //         label: 'Info',
-          //       ),
-          //       NavigationDestination(
-          //         icon: Icon(Icons.account_circle),
-          //         label: 'Wallet',
-          //       ),
-          //       NavigationDestination(
-          //         icon: Icon(Icons.account_circle),
-          //         label: 'Settings',
-          //       ),
-          //     ],
-          //   )
+      
 
 
         NavigationBar(
@@ -446,6 +338,118 @@ class _HomePageState extends State<HomePage>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
+          // NavigationBar(
+          //     destinations: const [
+          //       NavigationDestination(
+          //         icon: Icon(Icons.link),
+          //         label: 'Connect',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.info_sharp),
+          //         label: 'Info',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.account_circle),
+          //         label: 'Wallet',
+          //       ),
+          //       NavigationDestination(
+          //         icon: Icon(Icons.account_circle),
+          //         label: 'Settings',
+          //       ),
+          //     ],
+          //   )
+
+// void _onDestinationSelected(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     switch (index) {
+//       case 0:
+//         Navigator.pushNamed(context, '/connect');
+//         break;
+//       case 1:
+//         Navigator.pushNamed(context, '/info');
+//         break;
+//       case 2:
+//         Navigator.pushNamed(context, '/wallet');
+//         break;
+//       case 3:
+//         Navigator.pushNamed(context, '/settings');
+//         break;
+//     }
+//   }
+
+
+
+// void _onDestinationSelected(int index) {
+//     if (_selectedIndex == index) {
+//       // If the selected index is the same as the current index, do nothing
+//       return;
+//     }
+
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     switch (index) {
+//       case 0:
+//         // Navigator.pushReplacementNamed(context, '/connect');
+//         Navigator.pushNamed(context, '/connect');
+
+//         break;
+//       case 1:
+//         Navigator.pushNamed(context, '/info');
+//         break;
+//       case 2:
+//         Navigator.pushNamed(context, '/wallet');
+//         break;
+//       case 3:
+//         Navigator.pushNamed(context, '/settings');
+//         break;
+//     }
+//   }
+
+
+
+
+// void _onDestinationSelected(int index) {
+//     if (_selectedIndex == index) {
+//       // If the selected index is the same as the current index, do nothing
+//       return;
+//     }
+
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+
+//     switch (index) {
+//       case 0:
+//         // Do nothing if already on the home page
+//         break;
+//       case 1:
+//         Navigator.pushNamed(context, '/info');
+//         break;
+//       case 2:
+//         Navigator.pushNamed(context, '/wallet');
+//         break;
+//       case 3:
+//         Navigator.pushNamed(context, '/settings');
+//         break;
+//     }
+//   }
 
 
 

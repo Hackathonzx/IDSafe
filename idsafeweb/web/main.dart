@@ -9,5 +9,5 @@ import 'package:idsafeweb/app.dart';
 
 void main() {
   // Attaches the [App] component to the <body> of the page.
-  runApp(App());
+  runApp(const App());
 }
