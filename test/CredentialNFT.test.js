@@ -9,7 +9,6 @@ describe("CredentialNFT Contract", function () {
 
         const CredentialNFT = await ethers.getContractFactory("CredentialNFT");
         credentialNFT = await CredentialNFT.deploy(); // Correct deployment
-        await credentialNFT.deployed(); // Ensure deployment is complete
     });
 
     it('should issue a credential and store metadata', async function () {
