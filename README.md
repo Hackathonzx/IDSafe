@@ -21,6 +21,7 @@ In this project, Chainlink's Cross-Chain Interoperability Protocol (CCIP) is use
 
 # Deployment
 Network: IntersectTestnet, Intersect network on Avalanche.
+
 # Contract Addresses:
 - DIDRegistry: [0x41CD3d7753eeAD4c2d384a6C0074eA4c27dE36F1]
 - VerificationOracle: [0xf1979Ac32D086D1f3f3773fe0828d37729ed545f]
@@ -52,7 +53,7 @@ npm install @chainlink/ccip
 - Install the dependencies: npm install
 - Compile the smart contracts: npx hardhat compile
 - Run tests: npx hardhat test
-- Deploy the contract: npx hardhat run scripts/deploy.js --network <network-name>
+- Deploy the contract: npx hardhat run ignition/modules/deploy.js --network <network-name>
 
 # Usage
 - Issuing Credentials:
@@ -78,7 +79,7 @@ git checkout -b feature/your-feature
 - Make Changes and Commit:
 git add .
 git commit -m "Add feature"
-- Push Changes:
+Push Changes:
 git push origin feature/your-feature
 
 # License
