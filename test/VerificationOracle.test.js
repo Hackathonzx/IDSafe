@@ -3,7 +3,8 @@ const { expect } = require("chai");
 
 let verificationOracle;
 let user;
-const chainlinkCCIPRouterAddress = "0xF694E193200268f9a4868e4Aa017A0118C9a8177"; // Placeholder for actual address
+const chainlinkCCIPRouterAddress = "0xF694E193200268f9a4868e4Aa017A0118C9a8177"; // Placeholder for actual Chainlink CCIP Router address
+const linkTokenAddress = "0x514910771AF9Ca656af840dff83E8264EcF986CA"; // Example LINK token address, replace with the correct one
 
 beforeEach(async function () {
   // Get the signers (accounts) from ethers.js
@@ -11,8 +12,8 @@ beforeEach(async function () {
 
   // Deploy the VerificationOracle contract
   const VerificationOracle = await ethers.getContractFactory("VerificationOracle");
-  verificationOracle = await VerificationOracle.deploy(chainlinkCCIPRouterAddress, "0xYourLinkTokenAddress");
-  await verificationOracle.deployed();
+  verificationOracle = await VerificationOracle.deploy(chainlinkCCIPRouterAddress, linkTokenAddress);
+  await verificationOracle.waitForDeployment();
 });
 
 describe("VerificationOracle", function () {
