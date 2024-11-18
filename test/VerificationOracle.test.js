@@ -16,7 +16,7 @@ describe("VerificationOracle", function () {
     verificationOracle = await VerificationOracle.deploy(chainlinkCCIPRouterAddress, linkTokenAddress);
     await verificationOracle.waitForDeployment();
 
-    // Enable mock fulfillment for testing
+    // Enable mock fulfillment for testing purpose
     await verificationOracle.setMockFulfillment(true);
   });
 

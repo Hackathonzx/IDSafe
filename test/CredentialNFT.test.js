@@ -8,7 +8,7 @@ describe("CredentialNFT Contract", function () {
         [deployer, user] = await ethers.getSigners(); // Get deployer and user signers
 
         const CredentialNFT = await ethers.getContractFactory("CredentialNFT");
-        credentialNFT = await CredentialNFT.deploy(); // Correct deployment
+        credentialNFT = await CredentialNFT.deploy();
     });
 
     it('should issue a credential and store metadata', async function () {

@@ -26,12 +26,6 @@ describe("DIDRegistry Contract", function () {
             .withArgs(user.address, 0, 'did:example:123');
     });
 
-    // it('should fail if DID already registered', async function () {
-    //     await didRegistry.connect(user).registerDID('did:example:123');
-    //     await expect(didRegistry.connect(user).registerDID('did:example:123'))
-    //         .to.be.revertedWith('DID already registered');
-    // });
-
     it('should retrieve a DID', async function () {
         await didRegistry.connect(user).registerDID('did:example:123');
         const did = await didRegistry.getDID(0);
