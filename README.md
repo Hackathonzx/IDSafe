@@ -28,26 +28,28 @@ Network: IntersectTestnet, Intersect network on Avalanche.
 - CredentialNFT: [0x1d8c981FD95060A45b3Cea346DbF7b5b48f5CD36]
 
 # Setup and Installation
-Clone the Repository:  git clone https://github.com/yourusername/idsafe.git
-cd <project-repo-directory>
+
+Clone the Repository:  git clone https://github.com/Hackathonzx/IDSafe.git
+
+cd IDSafe
 
 # Dependencies and Installation
 # Dependencies:
-Solidity Version: ^0.8.0
-OpenZeppelin Contracts:
-@openzeppelin/contracts/token/ERC721/ERC721.sol
-@openzeppelin/contracts/access/Ownable.sol
-@openzeppelin/contracts/utils/Counters.sol
-Hardhat: For local development and testing
-npm install --save-dev hardhat
-Chai: Assertion library for testing
-npm install chai
-Ethers.js: For interacting with Ethereum
-npm install ethers
-Chainlink:
-npm install @chainlink/contracts: For utilizing Chainlink CCIP for cross-chain interoperability.
-Chainlink CCIP (Cross-Chain Interoperability Protocol) for cross-chain data transmission.
-npm install @chainlink/ccip
+- Solidity Version: ^0.8.0
+**OpenZeppelin Contracts:**
+- @openzeppelin/contracts/token/ERC721/ERC721.sol
+- @openzeppelin/contracts/access/Ownable.sol
+- @openzeppelin/contracts/utils/Counters.sol
+- Hardhat: For local development and testing
+- npm install --save-dev hardhat
+- Chai: Assertion library for testing
+- npm install chai
+- Ethers.js: For interacting with Ethereum
+- npm install ethers
+**Chainlink:**
+- npm install @chainlink/contracts: For utilizing Chainlink CCIP for cross-chain interoperability.
+- Chainlink CCIP (Cross-Chain Interoperability Protocol) for cross-chain data transmission.
+- npm install @chainlink/ccip
 
 # Installation:
 - Install the dependencies: npm install
@@ -57,12 +59,15 @@ npm install @chainlink/ccip
 
 # Usage
 - Issuing Credentials:
+
 Call issueCredentialWithMetadata(to: address, metadata: string) on the CredentialNFT contract.
 
 - Verifying Credentials:
+
 Use getCredentialMetadata(tokenId: uint256) to retrieve metadata.
 
 - Cross-Chain Verification:
+
 Call emitCrossChainVerificationEvent(tokenId: uint256, chain: string) to emit verification events.
 
 # Testing
@@ -72,21 +77,57 @@ Call emitCrossChainVerificationEvent(tokenId: uint256, chain: string) to emit ve
 - test/DIDRegistry.test.js: Tests for the DIDRegistry contract.
 - test/VerificationOracle.test.js: Tests for the VerificationOracle contract.
 
+CredentialNFT Contract
+
+    ✔ should issue a credential and store metadata (39ms)
+
+    ✔ should emit an event when credential is issued
+
+    ✔ should emit a cross-chain verification event
+
+    ✔ should burn a credential (58ms)
+
+    ✔ should fail to burn if not the owner
+
+  DIDRegistry Contract
+
+    ✔ should register a new DID
+
+    ✔ should emit an event on DID registration
+
+    ✔ should retrieve a DID
+
+    ✔ should fail if DID is not found
+
+  VerificationOracle
+
+    ✔ Should set the Chainlink CCIP Router
+
+    ✔ Should request cross-chain identity verification
+
+    ✔ Should fulfill a cross-chain verification request
+
+
+  12 passing (4s)
+
 # Contributing
 - Fork the Repository:
 - Create a New Branch:
-git checkout -b feature/your-feature
+
+- git checkout -b feature/your-feature
 - Make Changes and Commit:
-git add .
-git commit -m "Add feature"
-Push Changes:
-git push origin feature/your-feature
+- git add .
+- git commit -m "Add feature"
+- Push Changes:
+- git push origin feature/your-feature
 
 # License
 [MIT License]
 
 # Acknowledgments
+
 futhmah456@gmail.com
+
 nathfavour02@gmail.com
 
 

@@ -1,3 +1,4 @@
+
 require("@nomicfoundation/hardhat-ethers");
 require('@nomicfoundation/hardhat-toolbox');
 require("dotenv").config();
@@ -8,7 +9,7 @@ module.exports = {
   solidity: "0.8.24",
   networks: {
     IntersectTestnet: {
-      url: process.env.AVALANCHE_URL,
+      url: process.env.RPC_URL,
       chainId: 1612,
       accounts: [process.env.PRIVATE_KEY],
     },
