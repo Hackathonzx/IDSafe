@@ -15,13 +15,13 @@ async function main() {
     // Deploy CredentialNFT contract
     const CredentialNFT = await ethers.getContractFactory("CredentialNFT");
     const credentialNFT = await CredentialNFT.deploy();
-    await credentialNFT.waitForDeployment(); // Updated for ethers v6
-    console.log("CredentialNFT deployed to:", await credentialNFT.getAddress()); // Updated for ethers v6
+    await credentialNFT.waitForDeployment();
+    console.log("CredentialNFT deployed to:", await credentialNFT.getAddress());
 
     // Deploy VerificationOracle contract
     const VerificationOracle = await ethers.getContractFactory("VerificationOracle");
-    const ccipRouter = process.env.CCIP_ROUTER_ADDRESS; // Set this in your .env file
-    const linkToken = process.env.LINK_TOKEN_ADDRESS; // Set this in your .env file
+    const ccipRouter = process.env.CCIP_ROUTER_ADDRESS; // this is Set in the .env file
+    const linkToken = process.env.LINK_TOKEN_ADDRESS; // this is Set in the .env file
     const verificationOracle = await VerificationOracle.deploy(ccipRouter, linkToken);
     await verificationOracle.waitForDeployment(); // Updated for ethers v6
     console.log("VerificationOracle deployed to:", await verificationOracle.getAddress()); // Updated for ethers v6
